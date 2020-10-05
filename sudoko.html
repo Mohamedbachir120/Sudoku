@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoko</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="card">
+
+        <h1 class="title">
+            Welcome to Sudoku
+
+        </h1>
+        <span>
+        <label for="name">Your name</label>
+       <input type="text" name="name" id="name" >
+        </span>
+       <button type="submit" id="bt" onclick="btn_func()"> Valider</button>
+    </div>
+    <div class="main" style="display: none;">  
+        
+        <div class="submenu">
+ <h1>SUDOKU</h1>
+    
+           
+ <p class="time">00:00:00</p>     
+    </div>
+    
+    <table>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+       </tr>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+       </tr>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+       </tr>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+       </tr>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+       </tr>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+       </tr>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+       </tr>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()" ></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+       </tr>
+       <tr>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()"></td>
+           <td contenteditable="true" onkeyup="myfunction()" ></td>
+       </tr>
+<audio src="pl.mp3" loop></audio>
+    </div>
+ 
+    </table>
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
+<script>
+var st="";
+function btn_func(){
+
+ st=$("#name").val();
+ if(st.length>=3){
+alert("Bienvenue "+st);
+    $("#card").toggle(700);
+    $(".main").toggle(700);
+//    $("body").css("background","none");
+   $('audio')[0].play();
+
+   obj= JSON.parse(localStorage.getItem('myJavaScriptObject'));
+   if(!obj){
+var obj={
+    "name":"robot",
+    "score":"00:20:10"
+}
+}
+$('.submenu').append("<p>"+"meilleure score : <br>"+obj["name"]+"   "+obj["score"]+"</p>");
+
+}else{
+    alert("veuillez saisire un nom correcte");
+}
+
+} 
+
+function char_is_correct(chaine){
+
+   for(i=1;i<=9;i++){
+       if(i.toString()==chaine){
+           return true;
+       }
+   }
+   return false;
+}
+
+
+
+    function myfunction(){
+
+
+        var win=false;
+
+        var matrix = [];
+     var tab=[];   
+     var m;
+    for(var i=0; i<9; i++) {
+    matrix[i] = [];
+    for(var j=0; j<9; j++) {
+        matrix[i][j] =" ";
+    }
+}
+        $('td').each(function () {
+    var p=this.innerText;
+    tab.push(p);
+    
+        });
+        for(i=0;i<9;i++){
+           for(j=0;j<9;j++){
+               m=tab.pop();
+              
+               matrix[i][j]=m;
+         
+         
+          }}
+          if(is_repeated_all_lines(matrix)==false && is_full(matrix)){
+
+            obj= JSON.parse(localStorage.getItem('myJavaScriptObject'));
+            var record=obj["score"].split(":");
+            var v=$('.time').text();
+            var tab=v.split(':'); 
+
+            if(parseInt(tab[1])<record[1]){
+                alert("Bravo vous avez battu le meilleur record !");
+                var obj2 ={
+        "name": st,
+        "score": v,
+       
+    };
+    localStorage.setItem('myJavaScriptObject', JSON.stringify(obj2));
+    
+    var r=  confirm("voulez vous jouer une autre partie");
+
+         if(r==true){
+             location.reload();
+         }
+         else
+         {
+             window.close();
+         }        
+           }
+         else
+         {
+              alert("Vous avez gagné!");
+         var r=  confirm("voulez vous jouer une autre partie");
+         if(r==true)
+         {
+             location.reload();
+         }
+         else
+         {
+             window.close();
+         }
+            }
+              
+          }
+          else{
+              console.log("u still playing");
+          }
+
+
+
+          
+         
+       
+    }
+
+    function is_repeated_all_lines(matrix){
+        for(i=0;i<9;i++){
+            if(is_repeated(i,matrix)==true){
+
+                return true;
+
+                }
+            }
+            return false;
+    }
+
+        function is_repeated(index,matrix){
+            let count=0,j=0;
+            for(i=0;i<9;i++){
+               let nb= matrix[index][i];
+               count =0;
+               j=0;
+              while(j<9){
+                if(matrix[index][j]==nb && nb!=""){
+                    count++;
+                }
+                
+                
+                if(count>1){
+                    return true;
+                }
+                j++;
+              }
+
+            }
+            count =0;
+               j=0;
+               for(i=0;i<9;i++){
+               let nb= matrix[i][index];
+               if(char_is_correct(nb)==false){
+                   return true;
+               }
+               count =0;
+               j=0;
+              while(j<9){
+                if(matrix[j][index]==nb && nb!=""){
+                    count++;
+                }
+                
+                
+                if(count>1){
+                    return true;
+                }
+                j++;
+              }
+
+            }
+
+            return false;
+
+        }
+
+        function is_full(matrix){
+            for(i=0;i<9;i++){
+                for(j=0;j<9;j++){
+                    if(matrix[i][j]==""){
+                        return false;
+                    }
+                }
+            }
+        return true;
+        }
+
+    $(document).ready(function(){
+         
+    
+          window.setInterval(function(){
+            var v=$('.time').text();
+            var tab=v.split(':'); 
+            if(parseInt(tab[2])<60){
+                tab[2]=parseInt(tab[2])+1;
+            }else{
+                tab[2]=0;
+                if(parseInt(tab[1])<60){
+                    tab[1]=parseInt(tab[1])+1;
+                    
+                }else{
+                    tab[1]=0;
+                    tab[0]=parseInt(tab[0])+1;
+                }
+            }
+            var final=tab.join(':');
+            $('.time').text(final);
+        
+          },1000);
+          
+
+    
+
+          
+          
+          
+          });  
+
+
+
+          
+    </script>
