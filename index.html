@@ -157,6 +157,8 @@ var obj={
     "name":"robot",
     "score":"00:20:10"
 }
+    localStorage.setItem('myJavaScriptObject', JSON.stringify(obj));
+
 }
 $('.submenu').append("<p>"+"meilleure score : <br>"+obj["name"]+"   "+obj["score"]+"</p>");
 
