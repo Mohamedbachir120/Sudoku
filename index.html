@@ -157,10 +157,89 @@ var obj={
     "name":"robot",
     "score":"00:20:10"
 }
-    localStorage.setItem('myJavaScriptObject', JSON.stringify(obj));
 
+localStorage.setItem('myJavaScriptObject', JSON.stringify(obj));
 }
 $('.submenu').append("<p>"+"meilleure score : <br>"+obj["name"]+"   "+obj["score"]+"</p>");
+
+
+/*  choosing random elements to fill the matrix */
+let nb="";
+let val="";
+let tab=[];
+/* first element */
+nb =Math.floor(Math.random() * Math.floor(81));
+val=Math.floor(Math.random() * Math.floor(9));
+while(tab.indexOf(val)!=-1){
+    val=Math.floor(Math.random() * Math.floor(9));
+
+}
+tab.push(val);
+$('td').eq(nb).text(val);
+$('td').eq(nb).attr("contenteditable","false");
+$('td').eq(nb).css('color','blue');
+
+
+
+
+/* second element */
+nb =Math.floor(Math.random() * Math.floor(81));
+val=Math.floor(Math.random() * Math.floor(9));
+while(tab.indexOf(val)!=-1){
+    val=Math.floor(Math.random() * Math.floor(9));
+
+}
+tab.push(val);
+$('td').eq(nb).text(val);
+$('td').eq(nb).attr("contenteditable","false");
+$('td').eq(nb).css('color','blue');
+
+
+/* third elemnt */
+
+nb =Math.floor(Math.random() * Math.floor(81));
+val=Math.floor(Math.random() * Math.floor(9));
+while(tab.indexOf(val)!=-1){
+    val=Math.floor(Math.random() * Math.floor(9));
+
+}
+tab.push(val);
+$('td').eq(nb).text(val);
+$('td').eq(nb).attr("contenteditable","false");
+$('td').eq(nb).css('color','blue');
+
+
+
+
+/* forth element */
+nb =Math.floor(Math.random() * Math.floor(81));
+val=Math.floor(Math.random() * Math.floor(9));
+while(tab.indexOf(val)!=-1){
+    val=Math.floor(Math.random() * Math.floor(9));
+
+}
+tab.push(val);
+$('td').eq(nb).text(val);
+$('td').eq(nb).attr("contenteditable","false");
+$('td').eq(nb).css('color','blue');
+
+
+
+
+/* last element */
+
+nb =Math.floor(Math.random() * Math.floor(81));
+val=Math.floor(Math.random() * Math.floor(9));
+while(tab.indexOf(val)!=-1){
+    val=Math.floor(Math.random() * Math.floor(9));
+
+}
+tab.push(val);
+$('td').eq(nb).text(val);
+$('td').eq(nb).attr("contenteditable","false");
+$('td').eq(nb).css('color','blue');
+
+/* the end of choosing elemnts  */
 
 }else{
     alert("veuillez saisire un nom correcte");
@@ -248,11 +327,7 @@ function char_is_correct(chaine){
             }
               
           }
-          else{
-              console.log("u still playing");
-          }
-
-
+         
 
           
          
@@ -347,18 +422,33 @@ function char_is_correct(chaine){
             }
             var final=tab.join(':');
             $('.time').text(final);
+
+
+
+            
         
           },1000);
           
 
-    
+          window.setInterval(function(){
+
+          $('td').each(function () {
+
+                var p=this.innerText;
+                if(char_is_correct(p)==false && p!=""){
+                  
+                  this.innerText="";
+                
+                }
+
+          }   ); 
 
           
           
           
-          });  
+          },200);  
 
-
+        });  
 
           
     </script>
