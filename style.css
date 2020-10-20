@@ -25,7 +25,7 @@ body{
     padding: 10px;
     border-radius: 13px;
 }
-#card button{
+#bt{
     border: none;
     width: 100px;
     padding: 6px;
@@ -35,7 +35,7 @@ body{
     background-color: rgb(24, 3, 211);
     color: white;
 }
-#card button:hover{
+#bt:hover{
     cursor: pointer;
 }
 h1{
