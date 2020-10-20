@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoko</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script> 	
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +20,7 @@
         <label for="name">Your name</label>
        <input type="text" name="name" id="name" >
         </span>
-       <button type="submit" id="bt" onclick="btn_func()"> Valider</button>
+       <button type="submit" id="bt" onclick="btn_func()"> <i class="fas fa-check"></i> Valider</button>
     </div>
     <div class="main" style="display: none;">  
         
@@ -26,7 +28,11 @@
  <h1>SUDOKU</h1>
     
            
- <p class="time">00:00:00</p>     
+ <p class="time">00:00:00</p>   
+ 
+ <button id="bt" type="submit" onclick="clear_func()"><i class="fas fa-eraser"></i> clear </button>
+
+ <button id="bt" onclick="reload_win()"> <i class="fas fa-redo" ></i></button>
     </div>
     
     <table>
@@ -140,7 +146,40 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="script.js"></script>
 <script>
+function reload_win (){
+
+location.reload();
+
+}
+
+function clear_func(){
+
+
+    for(i=0;i<81;i++){
+
+    if(generated_tab.indexOf(i)==-1){
+
+        $("td").eq(i).text("");
+
+    }
+
+    }
+
+
+    }
+
+
+
 var st="";
+let matrix2=[];
+for(var i=0; i<9; i++) {
+    matrix2[i] = [];
+    for(var j=0; j<9; j++) {
+        matrix2[i][j] =" ";
+    }
+}
+var tab_repeat=[];
+var generated_tab=[];
 function btn_func(){
 
  st=$("#name").val();
@@ -169,6 +208,7 @@ let val="";
 let tab=[];
 /* first element */
 nb =Math.floor(Math.random() * Math.floor(81));
+
 val=Math.floor(Math.random() * Math.floor(9));
 while(tab.indexOf(val)!=-1){
     val=Math.floor(Math.random() * Math.floor(9));
@@ -178,7 +218,7 @@ tab.push(val);
 $('td').eq(nb).text(val);
 $('td').eq(nb).attr("contenteditable","false");
 $('td').eq(nb).css('color','blue');
-
+generated_tab.push(nb);
 
 
 
@@ -193,7 +233,7 @@ tab.push(val);
 $('td').eq(nb).text(val);
 $('td').eq(nb).attr("contenteditable","false");
 $('td').eq(nb).css('color','blue');
-
+generated_tab.push(nb);
 
 /* third elemnt */
 
@@ -207,7 +247,7 @@ tab.push(val);
 $('td').eq(nb).text(val);
 $('td').eq(nb).attr("contenteditable","false");
 $('td').eq(nb).css('color','blue');
-
+generated_tab.push(nb);
 
 
 
@@ -222,7 +262,7 @@ tab.push(val);
 $('td').eq(nb).text(val);
 $('td').eq(nb).attr("contenteditable","false");
 $('td').eq(nb).css('color','blue');
-
+generated_tab.push(nb);
 
 
 
@@ -238,7 +278,7 @@ tab.push(val);
 $('td').eq(nb).text(val);
 $('td').eq(nb).attr("contenteditable","false");
 $('td').eq(nb).css('color','blue');
-
+generated_tab.push(nb);
 /* the end of choosing elemnts  */
 
 }else{
@@ -280,12 +320,14 @@ function char_is_correct(chaine){
         });
         for(i=0;i<9;i++){
            for(j=0;j<9;j++){
-               m=tab.pop();
+               m=tab.shift();
               
                matrix[i][j]=m;
          
          
           }}
+          matrix2=matrix;
+          console.log(matrix2);
           if(is_repeated_all_lines(matrix)==false && is_full(matrix)){
 
             obj= JSON.parse(localStorage.getItem('myJavaScriptObject'));
@@ -391,6 +433,8 @@ function char_is_correct(chaine){
 
         }
 
+        
+
         function is_full(matrix){
             for(i=0;i<9;i++){
                 for(j=0;j<9;j++){
@@ -401,6 +445,87 @@ function char_is_correct(chaine){
             }
         return true;
         }
+                
+        
+        function convert_index(i,j){
+
+return (i*10+j-i);
+}
+
+function reverse_index(nb){
+
+let tab=[];
+
+tab[0]=Math.trunc(nb/9);
+tab[1]=nb%9;
+return tab;
+
+}
+
+
+        function  change_repated_color(index,matrix){
+        
+        
+
+
+        
+            let count=0;
+            let i=0;
+            while(i<9){
+
+                let nb=matrix[index][i];
+                count=0;
+                let current= convert_index(index,i);
+                for(j=0;j<9;j++){
+                    if(j!=i && nb==matrix[index][j]  && nb!=""){
+                        count++;
+
+                      
+
+                    } 
+                    
+                    }   
+
+                    let modulo=current%9;
+
+                    let min_tab=[];
+                        for(k=0;k<81;k++){
+
+                            min_tab=reverse_index(k);
+                   
+                            if(k%9==modulo && matrix[min_tab[0]][min_tab[1]]==nb && nb!="" && k!=current){
+                                    
+
+
+                                    count++;
+
+
+                                
+                            }
+                        }
+
+                    if(count>0){
+                        if(tab_repeat.indexOf(current)==-1){
+                            tab_repeat.push(current);
+                        }
+                    }else{
+                        if(tab_repeat.indexOf(current)!=-1){
+                        
+                        tab_repeat.splice(tab_repeat.indexOf(current),1);
+                        }
+                    }
+
+
+                i++;
+            }
+            i=0;
+            count=0;
+
+        
+
+
+        }
+
 
     $(document).ready(function(){
          
@@ -442,6 +567,24 @@ function char_is_correct(chaine){
                 }
 
           }   ); 
+
+
+         for(i=0;i<9;i++){
+
+              change_repated_color(i,matrix2);
+          }
+          for(i=0;i<81;i++){
+
+              if(tab_repeat.indexOf(i)!=-1 && generated_tab.indexOf(i)==-1){
+
+                  $('td').eq(i).css('color','red');
+              }else if(generated_tab.indexOf(i)==-1){
+
+                $('td').eq(i).css("color","black");
+
+              }
+          }
+
 
           
           
